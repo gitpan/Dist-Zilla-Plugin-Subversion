@@ -10,7 +10,7 @@ use strict;
 use Modern::Perl;
 
 package Dist::Zilla::Plugin::Subversion::ReleaseDist;
-our $VERSION = '1.100880';
+our $VERSION = '1.100890';
 
 # ABSTRACT: releases a distribution's tarball to Subversion
 
@@ -66,7 +66,7 @@ Dist::Zilla::Plugin::Subversion::ReleaseDist - releases a distribution's tarball
 
 =head1 VERSION
 
-version 1.100880
+version 1.100890
 
 =head1 DESCRIPTION
 
@@ -94,7 +94,7 @@ Imports the distribution tarball to the Subversion repository.
 
 =head1 AUTHOR
 
-  Mark Gardner <gardnerm@gsicommerce.com>
+  Mark Gardner <mjgardner@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

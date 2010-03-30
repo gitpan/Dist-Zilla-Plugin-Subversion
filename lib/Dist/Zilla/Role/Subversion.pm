@@ -10,7 +10,7 @@ use strict;
 use Modern::Perl;
 
 package Dist::Zilla::Role::Subversion;
-our $VERSION = '1.100880';
+our $VERSION = '1.100890';
 
 # ABSTRACT: does Subversion actions for a distribution
 
@@ -112,7 +112,7 @@ sub _build__svn {
 
     my $ctx_ref = SVN::Client->new(
         auth    => \@auth_baton,
-        log_msg => sub { ${ $ARG[0] } = "[__PACKAGE__]" },
+        log_msg => sub { ${ $ARG[0] } = '[' . caller(1) . ']' },
         notify  => $self->_make_notify_callback(),
     );
     return $ctx_ref;
@@ -171,7 +171,7 @@ Dist::Zilla::Role::Subversion - does Subversion actions for a distribution
 
 =head1 VERSION
 
-version 1.100880
+version 1.100890
 
 =head1 DESCRIPTION
 
@@ -198,7 +198,7 @@ the URL associated with the current working copy.
 
 =head1 AUTHOR
 
-  Mark Gardner <gardnerm@gsicommerce.com>
+  Mark Gardner <mjgardner@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

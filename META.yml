@@ -1,7 +1,7 @@
 ---
 abstract: 'update your Subversion repository after release'
 author:
-  - 'Mark Gardner <gardnerm@gsicommerce.com>'
+  - 'Mark Gardner <mjgardner@cpan.org>'
 build_requires: {}
 configure_requires:
   ExtUtils::MakeMaker: 6.11
@@ -42,4 +42,4 @@ requires:
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-Subversion
   repository: http://github.com/mjg/Dist-Zilla-Plugin-Subversion
-version: 1.100880
+version: 1.100890

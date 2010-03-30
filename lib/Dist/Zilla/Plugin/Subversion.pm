@@ -10,7 +10,7 @@ use strict;
 use Modern::Perl;
 
 package Dist::Zilla::Plugin::Subversion;
-our $VERSION = '1.100880';
+our $VERSION = '1.100890';
 
 # ABSTRACT: update your Subversion repository after release
 
@@ -25,7 +25,7 @@ Dist::Zilla::Plugin::Subversion - update your Subversion repository after releas
 
 =head1 VERSION
 
-version 1.100880
+version 1.100890
 
 =head1 DESCRIPTION
 
@@ -43,7 +43,7 @@ their work. The following plugins are provided in this distribution:
 
 =head1 AUTHOR
 
-  Mark Gardner <gardnerm@gsicommerce.com>
+  Mark Gardner <mjgardner@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

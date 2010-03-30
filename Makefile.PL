@@ -17,11 +17,11 @@ my %WriteMakefileArgs = (
                        'CONFIGURE_REQUIRES' => {
                                                  'ExtUtils::MakeMaker' => '6.11'
                                                },
-                       'AUTHOR' => 'Mark Gardner <gardnerm@gsicommerce.com>',
+                       'AUTHOR' => 'Mark Gardner <mjgardner@cpan.org>',
                        'BUILD_REQUIRES' => {},
                        'ABSTRACT' => 'update your Subversion repository after release',
                        'EXE_FILES' => [],
-                       'VERSION' => '1.100880',
+                       'VERSION' => '1.100890',
                        'PREREQ_PM' => {
                                         'Dist::Zilla::Role::AfterRelease' => '0',
                                         'Dist::Zilla::Role::Releaser' => '0',
