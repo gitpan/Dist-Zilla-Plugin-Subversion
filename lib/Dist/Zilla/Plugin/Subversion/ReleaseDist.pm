@@ -1,16 +1,15 @@
-#
+# 
 # This file is part of Dist-Zilla-Plugin-Subversion
-#
+# 
 # This software is copyright (c) 2010 by Mark Gardner.
-#
+# 
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
-#
+# 
 use strict;
 use Modern::Perl;
-
 package Dist::Zilla::Plugin::Subversion::ReleaseDist;
-our $VERSION = '1.100890';
+$Dist::Zilla::Plugin::Subversion::ReleaseDist::VERSION = '1.100900';
 
 # ABSTRACT: releases a distribution's tarball to Subversion
 
@@ -21,6 +20,7 @@ with 'Dist::Zilla::Role::Releaser';
 use English qw(-no_match_vars);
 use MooseX::Types::URI 'Uri';
 use namespace::autoclean;
+
 
 has 'dist_url' => (
     is         => 'ro',
@@ -34,6 +34,7 @@ sub _build_dist_url {
     $url->path_segments( $url->path_segments(), 'dists' );
     return $url;
 }
+
 
 sub release {
     my ( $self, $archive ) = @ARG;
@@ -58,6 +59,8 @@ __PACKAGE__->meta->make_immutable();
 no Moose;
 1;
 
+
+
 =pod
 
 =head1 NAME
@@ -66,7 +69,7 @@ Dist::Zilla::Plugin::Subversion::ReleaseDist - releases a distribution's tarball
 
 =head1 VERSION
 
-version 1.100890
+version 1.100900
 
 =head1 DESCRIPTION
 
@@ -105,4 +108,6 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
+
 __END__
+

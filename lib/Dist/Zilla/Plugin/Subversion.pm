@@ -1,21 +1,22 @@
-#
+# 
 # This file is part of Dist-Zilla-Plugin-Subversion
-#
+# 
 # This software is copyright (c) 2010 by Mark Gardner.
-#
+# 
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
-#
+# 
 use strict;
 use Modern::Perl;
-
 package Dist::Zilla::Plugin::Subversion;
-our $VERSION = '1.100890';
+$Dist::Zilla::Plugin::Subversion::VERSION = '1.100900';
 
 # ABSTRACT: update your Subversion repository after release
 
 use Dist::Zilla;
 1;
+
+
 
 =pod
 
@@ -25,7 +26,7 @@ Dist::Zilla::Plugin::Subversion - update your Subversion repository after releas
 
 =head1 VERSION
 
-version 1.100890
+version 1.100900
 
 =head1 DESCRIPTION
 
@@ -54,4 +55,6 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
+
 __END__
+
