@@ -1,22 +1,27 @@
-# 
+# -*- mode: cperl; cperl-indent-level: 4 -*-
+#
 # This file is part of Dist-Zilla-Plugin-Subversion
-# 
+#
 # This software is copyright (c) 2010 by Mark Gardner.
-# 
+#
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
-# 
+#
+use 5.010;
+use feature ':5.10';
 use strict;
-use Modern::Perl;
+use warnings;
+use utf8;
+use mro 'c3';
+
 package Dist::Zilla::Plugin::Subversion;
-$Dist::Zilla::Plugin::Subversion::VERSION = '1.100900';
+$Dist::Zilla::Plugin::Subversion::VERSION = '1.100910';
 
 # ABSTRACT: update your Subversion repository after release
+## no critic (ProhibitLongLines)
 
 use Dist::Zilla;
 1;
-
-
 
 =pod
 
@@ -26,7 +31,7 @@ Dist::Zilla::Plugin::Subversion - update your Subversion repository after releas
 
 =head1 VERSION
 
-version 1.100900
+version 1.100910
 
 =head1 DESCRIPTION
 
@@ -42,6 +47,8 @@ their work. The following plugins are provided in this distribution:
 
 =back
 
+=encoding utf8
+
 =head1 AUTHOR
 
   Mark Gardner <mjgardner@cpan.org>
@@ -55,6 +62,4 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
-
 __END__
-

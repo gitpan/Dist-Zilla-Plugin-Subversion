@@ -1,15 +1,21 @@
-# 
+# -*- mode: cperl; cperl-indent-level: 4 -*-
+#
 # This file is part of Dist-Zilla-Plugin-Subversion
-# 
+#
 # This software is copyright (c) 2010 by Mark Gardner.
-# 
+#
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
-# 
+#
+use 5.010;
+use feature ':5.10';
 use strict;
-use Modern::Perl;
+use warnings;
+use utf8;
+use mro 'c3';
+
 package Dist::Zilla::Role::Subversion;
-$Dist::Zilla::Role::Subversion::VERSION = '1.100900';
+$Dist::Zilla::Role::Subversion::VERSION = '1.100910';
 
 # ABSTRACT: does Subversion actions for a distribution
 
@@ -26,7 +32,6 @@ use SVN::Client;
 use SVN::Wc;
 use namespace::autoclean;
 
-
 for my $attr (qw(svn_user svn_password)) {
     has $attr => (
         is        => 'ro',
@@ -34,7 +39,6 @@ for my $attr (qw(svn_user svn_password)) {
         predicate => "_has_$attr",
     );
 }
-
 
 has 'working_url' => (
     is         => 'ro',
@@ -126,14 +130,13 @@ sub _make_notify_callback {
             = @ARG;
 
         $self->log(
-            join(
-                q{ }, '[SVN]',
-                grep {$ARG} (
-                    $_ACTION_NAME{$action},  $_STATE_NAME{$state},
-                    $_NODE_NAME{$node_kind}, $path,
-                    "r$revision_num",
-                ),
-            )
+            join q{ },
+            '[SVN]',
+            grep {$ARG} (
+                $_ACTION_NAME{$action},  $_STATE_NAME{$state},
+                $_NODE_NAME{$node_kind}, $path,
+                "r$revision_num",
+            ),
         );
         return;
     };
@@ -148,18 +151,18 @@ sub _codes_to_hash {
 }
 
 sub _log_commit_info {
-    my ( $self, $info, $message ) = @ARG;
+    my ( $self, $commit_info, $message ) = @ARG;
 
     $self->log(
-        join q{ }, $info->author(), $message, $info->revision(),
-        'on',      $info->date(),
+        join q{ }, $commit_info->author(),
+        $message,  $commit_info->revision(),
+        'on',      $commit_info->date(),
     );
+    return;
 }
 
 no Moose::Role;
 1;
-
-
 
 =pod
 
@@ -169,7 +172,7 @@ Dist::Zilla::Role::Subversion - does Subversion actions for a distribution
 
 =head1 VERSION
 
-version 1.100900
+version 1.100910
 
 =head1 DESCRIPTION
 
@@ -194,6 +197,8 @@ URL for the directory currently holding your distribution.  Defaults to your
 distribution's repository location as stated in your C<META.yml> file, or
 the URL associated with the current working copy.
 
+=encoding utf8
+
 =head1 AUTHOR
 
   Mark Gardner <mjgardner@cpan.org>
@@ -207,6 +212,4 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
-
 __END__
-

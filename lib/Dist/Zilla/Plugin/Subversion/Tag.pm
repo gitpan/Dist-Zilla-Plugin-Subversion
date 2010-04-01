@@ -1,15 +1,21 @@
-# 
+# -*- mode: cperl; cperl-indent-level: 4 -*-
+#
 # This file is part of Dist-Zilla-Plugin-Subversion
-# 
+#
 # This software is copyright (c) 2010 by Mark Gardner.
-# 
+#
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
-# 
+#
+use 5.010;
+use feature ':5.10';
 use strict;
-use Modern::Perl;
+use warnings;
+use utf8;
+use mro 'c3';
+
 package Dist::Zilla::Plugin::Subversion::Tag;
-$Dist::Zilla::Plugin::Subversion::Tag::VERSION = '1.100900';
+$Dist::Zilla::Plugin::Subversion::Tag::VERSION = '1.100910';
 
 # ABSTRACT: tags a distribution in Subversion
 
@@ -21,7 +27,6 @@ use Cwd;
 use English qw(-no_match_vars);
 use MooseX::Types::URI 'Uri';
 use namespace::autoclean;
-
 
 has 'tag_url' => (
     is         => 'ro',
@@ -36,7 +41,6 @@ sub _build_tag_url {
     return $url;
 }
 
-
 sub after_release {
     my $self = shift;
     my ( $working_url, $tag_url )
@@ -44,7 +48,7 @@ sub after_release {
     my %meta = %{ $self->zilla->distmeta() };
 
     $tag_url->path_segments( $tag_url->path_segments(),
-        join '-', @meta{qw(name version)} );
+        join q{-}, @meta{qw(name version)} );
     $self->log("Tagging $working_url as $tag_url");
 
     if ( my $commit_info = $self->_svn->commit( getcwd(), 0 ) ) {
@@ -67,8 +71,6 @@ __PACKAGE__->meta->make_immutable();
 no Moose;
 1;
 
-
-
 =pod
 
 =head1 NAME
@@ -77,7 +79,7 @@ Dist::Zilla::Plugin::Subversion::Tag - tags a distribution in Subversion
 
 =head1 VERSION
 
-version 1.100900
+version 1.100910
 
 =head1 DESCRIPTION
 
@@ -103,6 +105,8 @@ Implemented for
 L<Dist::Zilla::Role::AfterRelease|Dist::Zilla::Role::AfterRelease> role.
 Copies the working copy to a tag named after the distribution and its version.
 
+=encoding utf8
+
 =head1 AUTHOR
 
   Mark Gardner <mjgardner@cpan.org>
@@ -116,6 +120,4 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
-
 __END__
-

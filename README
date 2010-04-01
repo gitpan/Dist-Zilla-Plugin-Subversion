@@ -3,7 +3,7 @@ NAME
     after release
 
 VERSION
-    version 1.100900
+    version 1.100910
 
 DESCRIPTION
     This set of plugins for Dist::Zilla can do interesting things for module

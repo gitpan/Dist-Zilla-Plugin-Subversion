@@ -1,15 +1,21 @@
-# 
+# -*- mode: cperl; cperl-indent-level: 4 -*-
+#
 # This file is part of Dist-Zilla-Plugin-Subversion
-# 
+#
 # This software is copyright (c) 2010 by Mark Gardner.
-# 
+#
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
-# 
+#
+use 5.010;
+use feature ':5.10';
 use strict;
-use Modern::Perl;
+use warnings;
+use utf8;
+use mro 'c3';
+
 package Dist::Zilla::Plugin::Subversion::ReleaseDist;
-$Dist::Zilla::Plugin::Subversion::ReleaseDist::VERSION = '1.100900';
+$Dist::Zilla::Plugin::Subversion::ReleaseDist::VERSION = '1.100910';
 
 # ABSTRACT: releases a distribution's tarball to Subversion
 
@@ -20,7 +26,6 @@ with 'Dist::Zilla::Role::Releaser';
 use English qw(-no_match_vars);
 use MooseX::Types::URI 'Uri';
 use namespace::autoclean;
-
 
 has 'dist_url' => (
     is         => 'ro',
@@ -34,7 +39,6 @@ sub _build_dist_url {
     $url->path_segments( $url->path_segments(), 'dists' );
     return $url;
 }
-
 
 sub release {
     my ( $self, $archive ) = @ARG;
@@ -59,8 +63,6 @@ __PACKAGE__->meta->make_immutable();
 no Moose;
 1;
 
-
-
 =pod
 
 =head1 NAME
@@ -69,7 +71,7 @@ Dist::Zilla::Plugin::Subversion::ReleaseDist - releases a distribution's tarball
 
 =head1 VERSION
 
-version 1.100900
+version 1.100910
 
 =head1 DESCRIPTION
 
@@ -95,6 +97,8 @@ Implemented for
 L<Dist::Zilla::Role::Releaser|Dist::Zilla::Role::Releaser> role.
 Imports the distribution tarball to the Subversion repository.
 
+=encoding utf8
+
 =head1 AUTHOR
 
   Mark Gardner <mjgardner@cpan.org>
@@ -108,6 +112,4 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
-
 __END__
-
