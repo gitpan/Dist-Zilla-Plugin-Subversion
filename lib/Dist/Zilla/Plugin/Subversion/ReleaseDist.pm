@@ -15,13 +15,16 @@ use utf8;
 use mro 'c3';
 
 package Dist::Zilla::Plugin::Subversion::ReleaseDist;
-$Dist::Zilla::Plugin::Subversion::ReleaseDist::VERSION = '1.100910';
+
+BEGIN {
+    $Dist::Zilla::Plugin::Subversion::ReleaseDist::VERSION = '1.101580';
+}
 
 # ABSTRACT: releases a distribution's tarball to Subversion
 
 use Moose;
 with 'Dist::Zilla::Role::Subversion';
-with 'Dist::Zilla::Role::Releaser';
+with 'Dist::Zilla::Role::Releaser' => { -version => 4.101550 };
 
 use English qw(-no_match_vars);
 use MooseX::Types::URI 'Uri';
@@ -71,7 +74,7 @@ Dist::Zilla::Plugin::Subversion::ReleaseDist - releases a distribution's tarball
 
 =head1 VERSION
 
-version 1.100910
+version 1.101580
 
 =head1 DESCRIPTION
 

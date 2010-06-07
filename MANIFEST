@@ -3,6 +3,8 @@ INSTALL
 LICENSE
 MANIFEST
 META.yml
+Makefile.PL
+README
 dist.ini
 lib/Dist/Zilla/Plugin/Subversion.pm
 lib/Dist/Zilla/Plugin/Subversion/ReleaseDist.pm

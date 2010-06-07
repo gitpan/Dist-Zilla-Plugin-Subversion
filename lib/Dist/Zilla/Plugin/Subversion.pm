@@ -15,12 +15,15 @@ use utf8;
 use mro 'c3';
 
 package Dist::Zilla::Plugin::Subversion;
-$Dist::Zilla::Plugin::Subversion::VERSION = '1.100910';
+
+BEGIN {
+    $Dist::Zilla::Plugin::Subversion::VERSION = '1.101580';
+}
 
 # ABSTRACT: update your Subversion repository after release
 ## no critic (ProhibitLongLines)
 
-use Dist::Zilla;
+use Dist::Zilla 4.101550;
 1;
 
 =pod
@@ -31,7 +34,7 @@ Dist::Zilla::Plugin::Subversion - update your Subversion repository after releas
 
 =head1 VERSION
 
-version 1.100910
+version 1.101580
 
 =head1 DESCRIPTION
 
