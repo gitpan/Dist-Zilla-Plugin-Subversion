@@ -1,23 +1,12 @@
-# -*- mode: cperl; cperl-indent-level: 4 -*-
-#
-# This file is part of Dist-Zilla-Plugin-Subversion
-#
-# This software is copyright (c) 2010 by Mark Gardner.
-#
-# This is free software; you can redistribute it and/or modify it under
-# the same terms as the Perl 5 programming language system itself.
-#
 use 5.010;
-use feature ':5.10';
 use strict;
 use warnings;
 use utf8;
-use mro 'c3';
 
 package Dist::Zilla::Plugin::Subversion::ReleaseDist;
 
 BEGIN {
-    $Dist::Zilla::Plugin::Subversion::ReleaseDist::VERSION = '1.101580';
+    $Dist::Zilla::Plugin::Subversion::ReleaseDist::VERSION = '1.101590';
 }
 
 # ABSTRACT: releases a distribution's tarball to Subversion
@@ -27,6 +16,7 @@ with 'Dist::Zilla::Role::Subversion';
 with 'Dist::Zilla::Role::Releaser' => { -version => 4.101550 };
 
 use English qw(-no_match_vars);
+use Modern::Perl;
 use MooseX::Types::URI 'Uri';
 use namespace::autoclean;
 
@@ -74,7 +64,7 @@ Dist::Zilla::Plugin::Subversion::ReleaseDist - releases a distribution's tarball
 
 =head1 VERSION
 
-version 1.101580
+version 1.101590
 
 =head1 DESCRIPTION
 

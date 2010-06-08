@@ -1,23 +1,12 @@
-# -*- mode: cperl; cperl-indent-level: 4 -*-
-#
-# This file is part of Dist-Zilla-Plugin-Subversion
-#
-# This software is copyright (c) 2010 by Mark Gardner.
-#
-# This is free software; you can redistribute it and/or modify it under
-# the same terms as the Perl 5 programming language system itself.
-#
 use 5.010;
-use feature ':5.10';
 use strict;
 use warnings;
 use utf8;
-use mro 'c3';
 
 package Dist::Zilla::Role::Subversion;
 
 BEGIN {
-    $Dist::Zilla::Role::Subversion::VERSION = '1.101580';
+    $Dist::Zilla::Role::Subversion::VERSION = '1.101590';
 }
 
 # ABSTRACT: does Subversion actions for a distribution
@@ -27,6 +16,7 @@ with 'Dist::Zilla::Role::Plugin' => { -version => 4.101550 };
 
 use Cwd;
 use English qw(-no_match_vars);
+use Modern::Perl;
 use MooseX::Types::URI 'Uri';
 use Path::Class qw(dir file);
 use Readonly;
@@ -175,7 +165,7 @@ Dist::Zilla::Role::Subversion - does Subversion actions for a distribution
 
 =head1 VERSION
 
-version 1.101580
+version 1.101590
 
 =head1 DESCRIPTION
 
